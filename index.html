@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Watch</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #282c34;
+        }
+        #clock {
+            font-size: 60px;
+            color: white;
+            padding: 20px;
+            background-color: #333;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <div id="clock"></div>
+
+    <script>
+        // Function to update the time
+        function updateTime() {
+            const now = new Date();  // Get the current date and time
+            const hours = now.getHours().toString().padStart(2, '0');  // Get hours and format with leading zero if needed
+            const minutes = now.getMinutes().toString().padStart(2, '0');  // Get minutes
+            const seconds = now.getSeconds().toString().padStart(2, '0');  // Get seconds
+
+            // Update the clock display
+            document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds}`;
+        }
+
+        // Update the time every second (1000 ms)
+        setInterval(updateTime, 1000);
+
+        // Initialize the clock when the page loads
+        updateTime();
+    </script>
+</body>
+</html>
